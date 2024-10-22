@@ -3,7 +3,7 @@
 #include <locale.h> //biblioteca de alocações de texto por região
 #include<string.h>  //biblioteca responsavel por cuidar das strings
 
-int registro() //Fumncao responsavel por cadastrar os usuarios
+int registro() //Funcao responsavel por cadastrar os usuarios
 {
 	//incio da criaçao de variaveis/strings
     char arquivo [40];
@@ -11,6 +11,8 @@ int registro() //Fumncao responsavel por cadastrar os usuarios
 	char nome [40];
 	char sobrenome [40];
 	char cargo [40];
+	int opcao=0;
+	int laco=1;
 	//final da criaçao de variaveis/strings
 	
 	printf("Digite o cpf a ser cadastrado: "); //coletando informacoes do usuario
@@ -62,6 +64,29 @@ int registro() //Fumncao responsavel por cadastrar os usuarios
 	
 	system("pause");
 	
+	printf("\nGostaria de cadastrar outro usuário?\n");
+	printf("\nDigite '1' para SIM e '2' para NAO: ");
+	
+	scanf("%d", &opcao);
+		
+	system("cls");
+	
+	switch(opcao)
+	{
+		case 1:
+		registro();
+		break;
+		
+		case 2:
+		system("pause");
+		break;
+			
+		default:
+		printf("Essa opção não está disponível!\n");
+		system("pause"); //CONTINUA APARECENDO ATÉ O USUÁRIO Ñ QUERER MAIS
+		break;
+	}
+	
 }	
 
 int consulta()
@@ -70,6 +95,8 @@ int consulta()
 	
 	char cpf[40];
 	char conteudo[200];
+	int opcao=0;
+	int laco=1;
 	
 	printf("Digite o cpf a ser consultado: ");
 	scanf("%s",cpf);
@@ -84,6 +111,7 @@ int consulta()
     }
     
     printf("Essas são as informações do usúario: ");
+    printf("%s", conteudo);
 	printf("\n");
 	
 	while(fgets(conteudo, 200, file) != NULL)
@@ -92,6 +120,31 @@ int consulta()
 	}	
 	
 	system("pause");
+	
+	printf("\nGostaria de consultar outro usuário?\n");
+	printf("\nDigite '1' para SIM e '2' para NAO: ");
+	printf("\n\n");
+	
+	scanf("%d", &opcao);
+		
+	system("cls");
+	
+	switch(opcao)
+	{
+		case 1:
+		consulta();
+		break;
+		
+		case 2:
+		system("pause");
+		break;
+			
+		default:
+		printf("Essa opção não está disponível!\n");
+		system("pause"); //CONTINUA APARECENDO ATÉ O USUÁRIO Ñ QUERER MAIS
+		break;
+	}
+	
 	
 }
 
